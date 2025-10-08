@@ -2,6 +2,16 @@
 #include <stdio.h>
 
 void lv_example_hello_world(void) {
+    LV_FONT_DECLARE(test_font)
+    int data = 10;
+    lv_obj_t *label = lv_label_create(lv_scr_act());
+    // lv_label_set_text(label, "Hello, World!");
+    lv_label_set_recolor(label, true);
+    // lv_label_set_text_fmt(label, "#ff0000 Hello, World! %d#\n #00ff00 Hello#", data);
+    lv_obj_set_style_text_font(label, &test_font, LV_PART_MAIN);
+    lv_label_set_text(label, "刘嘉毅");
+    lv_obj_set_align(label, LV_ALIGN_CENTER);
+    /*
     static lv_style_t comstyle;
     lv_style_init(&comstyle);
     lv_style_set_bg_color(&comstyle,lv_color_make(255, 0, 0));
@@ -25,4 +35,5 @@ void lv_example_hello_world(void) {
     lv_obj_set_size(obj2,50,50);
     lv_obj_align_to(obj2, obj1, LV_ALIGN_OUT_BOTTOM_MID, 0, 0);
     lv_obj_add_style(obj2, &comstyle, LV_PART_MAIN);
+    */
 }
