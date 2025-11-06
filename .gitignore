@@ -10,3 +10,4 @@
 # Normal rules
 #
 /build
+/.clangd

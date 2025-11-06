@@ -9,6 +9,10 @@
         "string": "c",
         "string_view": "c",
         "em_hal_brightness.h": "c",
-        "time.h": "c"
+        "time.h": "c",
+        "font_conf.h": "c",
+        "res_conf.h": "c",
+        "typeinfo": "cpp",
+        "image_conf.h": "c"
     }
 }

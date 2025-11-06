@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include "lvgl.h"
 #include "page_test.h"
+#include "font_conf.h"
 
 extern void lv_port_disp_init(bool is_disp_orientation);
 extern void lv_port_indev_init(void);
@@ -14,8 +15,9 @@ int main() {
     lv_port_disp_init(true);
     //LVGL输入设备初始化
     lv_port_indev_init();
+    font_init();
 
-    lv_example_hello_world();
+    init_page();
 
     while (1) {
         lv_task_handler();
