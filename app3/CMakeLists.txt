@@ -9,7 +9,7 @@ endif()
 file(COPY res DESTINATION ${PROJECT_BINARY_DIR})
 # 编译当前目录下所有.c文件
 aux_source_directory(. SOURCES)
-# 生成名称为app1的可执行文件
+# 生成可执行文件
 add_executable(${PROJECT_NAME} ${SOURCES})
 # 引入头文件路径
 target_include_directories(${PROJECT_NAME} PRIVATE

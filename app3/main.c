@@ -4,6 +4,7 @@
 #include "lvgl.h"
 #include "page_test.h"
 #include "font_conf.h"
+#include "page_conf.h"
 
 extern void lv_port_disp_init(bool is_disp_orientation);
 extern void lv_port_indev_init(void);
@@ -17,7 +18,7 @@ int main() {
     lv_port_indev_init();
     font_init();
 
-    init_page();
+    init_page1();
 
     while (1) {
         lv_task_handler();
