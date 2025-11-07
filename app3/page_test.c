@@ -50,5 +50,5 @@ void init_page(void)
     // 点击返回按钮
     lv_obj_add_event_cb(back_btn, page2_event_cb, LV_EVENT_CLICKED, NULL);
 
-    lv_scr_load(page1);
+    // lv_scr_load(page1);
 }
