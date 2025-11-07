@@ -13,7 +13,7 @@ static void btn_click_event_cb_func(lv_event_t *e) {
     {
         //则调用lv_obj_clean清掉lv_scr_act下所有对象
         lv_obj_clean(act_scr);
-        init_page2();
+        init_page1();
     }
 }
 
