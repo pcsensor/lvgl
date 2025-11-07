@@ -19,14 +19,14 @@ static lv_obj_t *page2;
 
 void page1_event_cb(lv_event_t * e)
 {
-    lv_scr_load(page2);
-    // lv_scr_load_anim(page2, LV_SCR_LOAD_ANIM_MOVE_LEFT, 300, 0, false);  // 带左滑动画
+    // lv_scr_load(page2);
+    lv_scr_load_anim(page2, LV_SCR_LOAD_ANIM_MOVE_LEFT, 300, 0, false);  // 带左滑动画
 }
 
 void page2_event_cb(lv_event_t * e)
 {
-    lv_scr_load(page1);
-    // lv_scr_load_anim(page1, LV_SCR_LOAD_ANIM_MOVE_RIGHT, 300, 0, false);  // 带右滑动画
+    // lv_scr_load(page1);
+    lv_scr_load_anim(page1, LV_SCR_LOAD_ANIM_MOVE_RIGHT, 300, 0, false);  // 带右滑动画
 }
 
 void init_page(void)
