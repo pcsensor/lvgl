@@ -6,9 +6,15 @@ static void btn_click_event_cb_func(lv_event_t *e) {
     printf("page1 btn click\n");
     // 获取活动屏幕对象
     lv_obj_t *act_scr = lv_scr_act();
-    // 调用lv_obj_clean清掉lv_scr_act下所有子对象
-    lv_obj_clean(act_scr);
-    init_page2();
+
+    const lv_disp_t *d = lv_obj_get_disp(act_scr);
+
+    if (d->prev_scr == NULL && (d->scr_to_load == NULL || d->scr_to_load == act_scr))
+    {
+        //则调用lv_obj_clean清掉lv_scr_act下所有对象
+        lv_obj_clean(act_scr);
+        init_page2();
+    }
 }
 
 void init_page1() {
