@@ -18,7 +18,7 @@ int main() {
     lv_port_indev_init();
     font_init();
 
-    init_page1();
+    init_page();
 
     while (1) {
         lv_task_handler();

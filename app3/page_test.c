@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "image_conf.h"
 #include "lv_anim.h"
 #include "lv_area.h"
@@ -12,43 +13,19 @@
 #include "lv_slider.h"
 #include "lv_timer.h"
 #include "lvgl.h"
-#include <stdio.h>
+#include "page_conf.h"
 
-static lv_obj_t *page1;
-static lv_obj_t *page2;
-
-void page1_event_cb(lv_event_t * e)
-{
-    // lv_scr_load(page2);
-    lv_scr_load_anim(page2, LV_SCR_LOAD_ANIM_MOVE_LEFT, 300, 0, false);  // 带左滑动画
+static void event_cb(lv_event_t *e) {
+    lv_obj_t *obj = lv_event_get_current_target(e);
+    // printf("Button %s clicked\n", lv_msgbox_get_active_btn_text(obj));
+    // lv_msgbox_close(obj);
+    init_dialog();
 }
 
-void page2_event_cb(lv_event_t * e)
-{
-    // lv_scr_load(page1);
-    lv_scr_load_anim(page1, LV_SCR_LOAD_ANIM_MOVE_RIGHT, 300, 0, false);  // 带右滑动画
-}
+void init_page(void) {
+    static const char *btns[] = {"Apply", "Close", ""};
 
-void init_page(void)
-{
-    // 创建屏幕
-    page1 = lv_obj_create(NULL);  // 屏幕1
-    // 在屏幕1上添加内容（例如一个按钮）
-    lv_obj_t *btn = lv_btn_create(page1);
-    lv_obj_align(btn, LV_ALIGN_CENTER, 0, 0);
-    lv_obj_t *label = lv_label_create(btn);
-    lv_label_set_text(label, "Go to page2");
-    // 点击按钮切换到屏幕2
-    lv_obj_add_event_cb(btn, page1_event_cb, LV_EVENT_CLICKED, NULL);
-
-    page2 = lv_obj_create(NULL);  // 屏幕2
-    // 在屏幕2上添加返回按钮
-    lv_obj_t *back_btn = lv_btn_create(page2);
-    lv_obj_align(back_btn, LV_ALIGN_CENTER, 0, 0);
-    lv_obj_t *back_label = lv_label_create(back_btn);
-    lv_label_set_text(back_label, "Back to page1");
-    // 点击返回按钮
-    lv_obj_add_event_cb(back_btn, page2_event_cb, LV_EVENT_CLICKED, NULL);
-
-    lv_scr_load(page1);
+    lv_obj_t *mbox1 = lv_msgbox_create(NULL, "Hello", "This is a message box", btns, false);
+    lv_obj_add_event_cb(mbox1, event_cb, LV_EVENT_VALUE_CHANGED, NULL);
+    lv_obj_center(mbox1);
 }

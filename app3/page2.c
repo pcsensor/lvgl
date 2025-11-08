@@ -7,14 +7,16 @@ static void btn_click_event_cb_func(lv_event_t *e) {
     // 获取活动屏幕对象
     lv_obj_t *act_scr = lv_scr_act();
 
-    const lv_disp_t *d = lv_obj_get_disp(act_scr);
-
-    if (d->prev_scr == NULL && (d->scr_to_load == NULL || d->scr_to_load == act_scr))
-    {
-        //则调用lv_obj_clean清掉lv_scr_act下所有对象
-        lv_obj_clean(act_scr);
-        init_page1();
-    }
+    // const lv_disp_t *d = lv_obj_get_disp(act_scr);
+    // if (d->prev_scr == NULL && (d->scr_to_load == NULL || d->scr_to_load == act_scr))
+    // {
+    //     //则调用lv_obj_clean清掉lv_scr_act下所有对象
+    //     lv_obj_clean(act_scr);
+    //     init_page1();
+    // }
+    static const char * btns[] ={"Apply", "Close", ""};
+    lv_obj_t * mbox1 = lv_msgbox_create(NULL, "Hello", "This is a message box", btns, true);
+    lv_obj_center(mbox1);
 }
 
 void init_page2() {
