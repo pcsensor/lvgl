@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "lvgl.h"
+#include "page_conf.h"
 
 static lv_style_t com_style;
 
@@ -45,6 +46,8 @@ void init_dialog() {
     lv_obj_t *cont = lv_obj_create(lv_layer_top());
     lv_obj_set_size(cont, LV_PCT(100), LV_PCT(100));
     lv_obj_add_style(cont, &com_style, LV_PART_MAIN);
+    lv_obj_set_style_bg_opa(cont, LV_OPA_50, LV_PART_MAIN);
+    lv_obj_set_style_bg_color(cont, lv_color_make(255, 0, 0), LV_PART_MAIN);
 
     // 初始化一个弹窗对象
     lv_obj_t *msgbox_obj = lv_obj_create(cont);

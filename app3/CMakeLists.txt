@@ -18,10 +18,12 @@ target_include_directories(${PROJECT_NAME} PRIVATE
                                 ./res/font
                                 ./res/image
                                 ${CMAKE_SOURCE_DIR}/lvgl
+                                ${CMAKE_SOURCE_DIR}/lvgl/demos
                                 ${CMAKE_SOURCE_DIR}/component/font
                                 )
 # 引入依赖库
 target_link_libraries(${PROJECT_NAME} PRIVATE
+                        lvgl_demos
                         lvgl
                         font
                         )
